@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,15 +8,10 @@ import { NgForm } from '@angular/forms';
   ]
 })
 
-export class BasicsComponent implements OnInit {
+export class BasicsComponent {
 
   // Permite buscar un elemento a traves de una referencia local #referencia
   @ViewChild('form') form!: NgForm;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   productValid(): boolean {
     return this.form?.controls.product?.invalid && this.form?.controls.product?.touched;
@@ -28,7 +23,7 @@ export class BasicsComponent implements OnInit {
 
   onSubmit() {
     console.log(this.form.value);
-    
+    this.form.resetForm();
   }
 
 }
