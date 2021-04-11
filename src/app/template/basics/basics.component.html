@@ -4,24 +4,25 @@
 <div class="row">
     <div class="col">
 
-        <form (ngSubmit)="onSubmit(form)" #form="ngForm" autocomplete="off">
+        <form (ngSubmit)="onSubmit()" #form="ngForm" autocomplete="off">
             <div class="mb-3">
                 <label class="form-label">Producto</label>
                 <input type="text" class="form-control" placeholder="Nombre del producto" name="product" ngModel required minlength="3">
-                <div *ngIf="form.controls.product?.invalid && form.controls.product?.touched" class="form-text text-danger">Minímo de caracteres debe ser de 3 letras.</div>
+                <div *ngIf="productValid()" class="form-text text-danger">Minímo de caracteres debe ser de 3 letras.</div>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Precio</label>
                 <input type="number" class="form-control" placeholder="Precio del Producto" name="price" ngModel required>
+                <div *ngIf="priceValid()" class="form-text text-danger">El precio debe ser ser mayor o igual a 0.</div>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Existencias</label>
-                <input type="number" class="form-control" placeholder="Existencias del Producto" name="existencias" ngModel required>
+                <input type="number" class="form-control" placeholder="Existencias del Producto" name="existencias" ngModel required customMin [min]="0">
             </div>
 
-            <button type="submit" class="btn btn-primary float-end">Guardar</button>
+            <button type="submit" class="btn btn-primary float-end" [disabled]="form.invalid">Guardar</button>
         </form>
 
     </div>
@@ -40,5 +41,8 @@
 
         <span>Value</span>
         <pre>{{ form.value | json }}</pre>
+
+        <span>Custom Directive</span>
+        <pre>{{ form.controls.existencias?.errors | json }}</pre>
     </div>
 </div>
