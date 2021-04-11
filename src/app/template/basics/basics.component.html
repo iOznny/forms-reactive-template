@@ -1,1 +1,44 @@
-<p>basics works!</p>
+<h2>Template: Basicos</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm" autocomplete="off">
+            <div class="mb-3">
+                <label class="form-label">Producto</label>
+                <input type="text" class="form-control" placeholder="Nombre del producto" name="product" ngModel required minlength="3">
+                <div *ngIf="form.controls.product?.invalid && form.controls.product?.touched" class="form-text text-danger">Minímo de caracteres debe ser de 3 letras.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Precio</label>
+                <input type="number" class="form-control" placeholder="Precio del Producto" name="price" ngModel required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Existencias</label>
+                <input type="number" class="form-control" placeholder="Existencias del Producto" name="existencias" ngModel required>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-end">Guardar</button>
+        </form>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{ form.valid }}</pre>
+
+        <span>Pristine</span>
+        <pre>{{ form.pristine }}</pre>
+
+        <span>Touched</span>
+        <pre>{{ form.touched }}</pre>
+
+        <span>Value</span>
+        <pre>{{ form.value | json }}</pre>
+    </div>
+</div>
