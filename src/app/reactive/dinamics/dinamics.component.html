@@ -1,1 +1,41 @@
-<p>dinamics works!</p>
+<h2>Reactive: Dinamicos</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre completo">
+                <div class="form-text text-danger">El nombre es obligatorio.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Agregar</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Agregar favorito" (keyup.enter)="a=1">
+                    <button class="btn btn-outline-primary" type="button" (click)="a=1">Button</button>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Juegos Favoritos</label>
+                <!-- <div class="input-group mb-1" *ngFor="let game of person.favorites; let i = index" >                    
+                    <input type="text" class="form-control">
+                    <button class="btn btn-outline-danger" type="button" (click)="a=1)">Eliminar</button>
+                </div> -->
+            </div>
+            
+            <button type="button" class="btn btn-primary float-end">Guardar</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col">
+        <span>Persona</span>
+        <pre>{{ person | json }}</pre>
+    </div>
+</div> -->

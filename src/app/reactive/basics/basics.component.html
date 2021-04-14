@@ -1,1 +1,48 @@
-<p>basics works!</p>
+<h2>Reactive: Basicos</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form autocomplete="off">
+            <div class="mb-3">
+                <label class="form-label">Producto</label>
+                <input type="text" class="form-control" placeholder="Nombre del producto">
+                <div  class="form-text text-danger">Minímo de caracteres debe ser de 3 letras.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Precio</label>
+                <input type="number" class="form-control" placeholder="Precio del Producto">
+                <div  class="form-text text-danger">El precio debe ser ser mayor o igual a 0.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Existencias</label>
+                <input type="number" class="form-control" placeholder="Existencias del Producto">
+            </div>
+
+            <button type="submit" class="btn btn-primary float-end">Guardar</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{ form.valid }}</pre>
+
+        <span>Pristine</span>
+        <pre>{{ form.pristine }}</pre>
+
+        <span>Touched</span>
+        <pre>{{ form.touched }}</pre>
+
+        <span>Value</span>
+        <pre>{{ form.value | json }}</pre>
+
+        <span>Custom Directive</span>
+        <pre>{{ form.controls.existencias?.errors | json }}</pre>
+    </div>
+</div> -->
