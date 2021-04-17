@@ -14,8 +14,8 @@
             <div class="mb-3">
                 <label class="form-label">Agregar</label>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Agregar favorito" >
-                    <button class="btn btn-outline-primary" type="button">Button</button>
+                    <input type="text" class="form-control" placeholder="Agregar favorito" [formControl]="newFav" (keyup.enter)="addFav()">
+                    <button class="btn btn-outline-primary" type="button" (click)="addFav()">Button</button>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@
                 <label class="form-label">Juegos Favoritos</label>
                 <div class="input-group mb-1" *ngFor="let item of favoritesArr.controls; let i = index">  
                     <input type="text" class="form-control" [formControlName]="i">
-                    <button class="btn btn-outline-danger" type="button">Eliminar</button>
+                    <button class="btn btn-outline-danger" type="button" (click)="deleteFavorite(i)">Eliminar</button>
                 </div>
             </div>
             
@@ -40,5 +40,9 @@
 
         <span>Value</span>
         <pre>{{ form.value | json }}</pre>
+
+        <span>Agregar Juego</span>
+        <pre>{{ newFav.valid }}</pre>
+        <pre>{{ newFav.value }}</pre>
     </div>
 </div>

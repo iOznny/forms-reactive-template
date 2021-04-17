@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dinamics',
@@ -21,6 +21,8 @@ export class DinamicsComponent implements OnInit {
     )
   });
 
+  public newFav: FormControl = this.fb.control('', Validators.required);
+
   get favoritesArr() {
     return this.form.get('favorites') as FormArray;
   }
@@ -41,9 +43,27 @@ export class DinamicsComponent implements OnInit {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;      
+    }  
+  }
+
+  /**
+   * Añadir nuevo juego
+   */
+  public addFav() {
+    if (this.newFav.invalid) {
+      return;
     }
 
-    console.log(this.form.value);    
+    this.favoritesArr.push(new FormControl(this.newFav.value, Validators.required));
+    this.newFav.reset();
   }
+
+  /**
+   * DeleteFavorite
+   */
+  public deleteFavorite(i: number) {
+    this.favoritesArr.removeAt(i);
+  }
+
 
 }
