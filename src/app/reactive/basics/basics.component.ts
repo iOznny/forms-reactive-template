@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   ]
 })
 
-export class BasicsComponent  {
+export class BasicsComponent implements OnInit {
 
   /* public form: FormGroup = new FormGroup({
     'name': new FormControl('RTX 3090'),
@@ -25,6 +25,13 @@ export class BasicsComponent  {
 
   constructor(private fb: FormBuilder) { }
 
+  ngOnInit() {
+    this.form.reset({
+      name: 'RTX 3090',
+      price: 34243
+    })
+  }
+
   inputInvalid(campo: string) {
     return this.form.controls[campo].errors && this.form.controls[campo].touched;
   }
@@ -36,17 +43,8 @@ export class BasicsComponent  {
     }
     
     
-
-
-
-
     console.log(this.form.value);
-
-
-
+    this.form.reset();
   }
-
-
-
 
 }
