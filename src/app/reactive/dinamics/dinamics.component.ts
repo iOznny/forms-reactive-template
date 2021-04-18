@@ -65,5 +65,4 @@ export class DinamicsComponent implements OnInit {
     this.favoritesArr.removeAt(i);
   }
 
-
 }
