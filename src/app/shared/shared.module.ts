@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
+
+// Modules
 import { CommonModule } from '@angular/common';
-import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { RouterModule } from '@angular/router';
+
+// Components
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
 
 @NgModule({
   declarations: [
