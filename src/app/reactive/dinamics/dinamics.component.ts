@@ -3,9 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 
 @Component({
   selector: 'app-dinamics',
-  templateUrl: './dinamics.component.html',
-  styles: [
-  ]
+  templateUrl: './dinamics.component.html'
 })
 
 export class DinamicsComponent implements OnInit {

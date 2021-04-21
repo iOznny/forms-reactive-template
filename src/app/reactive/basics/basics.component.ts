@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
-  templateUrl: './basics.component.html',
-  styles: [
-  ]
+  templateUrl: './basics.component.html'
 })
 
 export class BasicsComponent implements OnInit {
