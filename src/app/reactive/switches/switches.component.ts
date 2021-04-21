@@ -3,9 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-switches',
-  templateUrl: './switches.component.html',
-  styles: [
-  ]
+  templateUrl: './switches.component.html'
 })
 
 export class SwitchesComponent implements OnInit {
