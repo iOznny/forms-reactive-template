@@ -9,8 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   public regNamePattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
-
-  form: FormGroup = this.fb.group({
+  public form: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(this.regNamePattern)]]
   })
 
@@ -25,7 +24,6 @@ export class RegisterComponent implements OnInit {
 
   submit() {
     console.log(this.form.value);
-    
     this.form.markAllAsTouched();
   }
 
