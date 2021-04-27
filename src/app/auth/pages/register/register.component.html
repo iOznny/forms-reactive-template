@@ -15,7 +15,7 @@
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input type="email" class="form-control" placeholder="a@b.c" formControlName="email">      
-                <span *ngIf="campoInvalid('email')" class="form-text text-danger">Complete el correo electronico</span>          
+                <span *ngIf="campoInvalid('email')" class="form-text text-danger">{{ emailErrorMSG }}</span>          
             </div>
 
             <!-- Username -->
@@ -28,16 +28,18 @@
             <!-- Password -->
             <div class="mb-3">
                 <label class="form-label">Contraseña</label>
-                <input type="password" class="form-control" placeholder="Contraseña" formControlName="password">                
+                <input type="password" class="form-control" placeholder="Contraseña" formControlName="password">  
+                <span *ngIf="campoInvalid('password')" class="form-text text-danger">La contraseña debe de ser mayor a 6 caracteres</span>              
             </div>
 
             <!-- Confirm Password -->
             <div class="mb-3">
                 <label class="form-label">Confirmar Contraseña</label>
                 <input type="password" class="form-control" placeholder="Confirmar Contraseña" formControlName="cpassword">                
+                <span *ngIf="campoInvalid('cpassword')" class="form-text text-danger">Las contraseñas deben ser iguales</span>
             </div>
 
-            <button type="submit" class="btn btn-primary float-end">Crear</button>
+            <button type="submit" class="btn btn-primary float-end" [disabled]="form.pending">Crear</button>
         </form>
     </div>
 </div>
@@ -45,6 +47,13 @@
 <h5>Valid</h5>
 <pre>{{ form.valid }}</pre>
 
+<h5>Status</h5>
+<pre>{{ form.status }}</pre>
+
+<h5>Pending</h5>
+<pre>{{ form.pending }}</pre>
+
+<h5>Erros</h5>
 <pre>{{ form.errors | json }}</pre>
 
 <h5>Name</h5>
